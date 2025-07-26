@@ -1,4 +1,5 @@
-import "@/styles/global.css"
+import "@/styles/globals.css"
+import HeaderComponent from "@/components/HeaderComponent"
 
 export const metadata = {
     title:"Ole Knitwear",
@@ -21,6 +22,7 @@ export default function RootLayout({
                 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"></link>
             </head>
             <body>
+                <HeaderComponent />
                 {children}
             </body>
         </html>
