@@ -1,6 +1,7 @@
 import "@/styles/globals.css"
 import HeaderComponent from "@/components/HeaderComponent"
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import Footer from "@/components/FooterComponent"
 
 export const metadata = {
     title:"Ole Knitwear",
@@ -25,6 +26,7 @@ export default function RootLayout({
             <body>
                 <HeaderComponent />
                 {children}
+                <Footer />
                 <SpeedInsights />
             </body>
         </html>

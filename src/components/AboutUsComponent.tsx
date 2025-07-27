@@ -5,7 +5,7 @@ export default function AboutUsComponent() {
         <div className="max-w-7xl mx-auto px-8 py-16">
             <div className="flex flex-col md:flex-row items-center justify-center gap-10">
 
-                <div className="w-full md:w-1/2">
+                <div className="w-full md:w-1/2 flex justify-center">
                     <Image
                         src="/images/aboutus.jpg"
                         alt="about us"
@@ -26,6 +26,7 @@ export default function AboutUsComponent() {
                     <p className="text-gray-700 leading-loose ">
                         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis dignissimos commodi, inventore ad sed similique dolores vero animi, distinctio libero doloremque! Incidunt ut at illum blanditiis alias saepe obcaecati ex!
                     </p>
+                    <p className="pt-10 italic"><b>Olesia Bruskova - Founder of Ole Knitwear</b></p>
                 </div>
             </div>
         </div>

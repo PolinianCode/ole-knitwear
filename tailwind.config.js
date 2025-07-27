@@ -9,6 +9,7 @@ module.exports = {
         gray: {
           main: '#444444',
         },
+        brand: "#d9599b"
       },
       fontFamily: {
         'sans': ['Montserrat', 'sans-serif'],
