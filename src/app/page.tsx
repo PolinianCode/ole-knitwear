@@ -1,7 +1,11 @@
+'use client'
+
+import SliderComponent from "@/components/SliderComponent"
+
 export default function HomePage() {
     return (
         <div>
-            <h1>Home Page</h1>
+            <SliderComponent />
         </div>
     )
 }
