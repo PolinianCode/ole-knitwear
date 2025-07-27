@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function AboutUsComponent() {
     return (
         <div className="max-w-7xl mx-auto px-8 py-16">
-            <div className="flex flex-col md:flex-row items-center md:items-start justify-center gap-10">
+            <div className="flex flex-col md:flex-row items-center justify-center gap-10">
 
                 <div className="w-full md:w-1/2">
                     <Image
