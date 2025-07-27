@@ -161,7 +161,7 @@ export default function HeaderComponent() {
                                         {languages.map((lang) => (
                                             <button
                                             key={lang}
-                                            onClick={() => setLanguage(lang as any)}
+                                            onClick={() => setLanguage(lang)}
                                             className={`block w-full text-left px-3 py-2 text-sm transition-colors duration-150 font-medium ${
                                                 language === lang 
                                                 ? 'text-black bg-gray-50' 
