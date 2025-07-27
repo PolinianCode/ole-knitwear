@@ -2,6 +2,7 @@
 
 import {GlobeAltIcon, ShoppingBagIcon, ChevronDownIcon, Bars3Icon, XMarkIcon} from '@heroicons/react/24/outline'
 import { useState } from 'react';
+import Link from 'next/link';
 
 const currencies = ["EUR", "PLN", "UAH"]
 const languages = ["EN", "PL", "UA"]
@@ -84,14 +85,14 @@ export default function HeaderComponent() {
 
                     {/* Middle block - Logotype */}
                     <div className="absolute left-1/2 transform -translate-x-1/2">
-                        <a href="/">
+                        <Link href="/">
                             <img 
                             src="./images/logotype.png" 
                             alt="Ole knitwear logotype" 
                             width={100}
                             height={50}
                             />
-                        </a>
+                        </Link>
                     </div>
 
                     {/* Right - Currency, Language, Cart */}
@@ -122,7 +123,7 @@ export default function HeaderComponent() {
                                     {currencies.map((currencyOption) => (
                                         <button
                                         key={currencyOption}
-                                        onClick={() => setCurrency(currencyOption as any)}
+                                        onClick={() => setCurrency(currencyOption)}
                                         className={`block w-full text-left px-3 py-2 text-sm transition-colors duration-150 font-medium ${
                                             currency === currencyOption 
                                             ? 'text-black bg-gray-50' 
@@ -197,9 +198,9 @@ export default function HeaderComponent() {
                                 <XMarkIcon className="w-6 h-6 text-black" />
                             </button>
 
-                            <a href="/">
+                            <Link href="/">
                                 <img src="./images/logotype.png" alt="Logo" width={100} height={50} />
-                            </a>
+                            </Link>
                         </div>
 
                         <nav className="mt-10 flex flex-col items-center gap-6 text-lg font-medium text-gray-800">
