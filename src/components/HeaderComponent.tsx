@@ -3,6 +3,8 @@
 import {GlobeAltIcon, ShoppingBagIcon, ChevronDownIcon, Bars3Icon, XMarkIcon} from '@heroicons/react/24/outline'
 import { useState } from 'react';
 import Link from 'next/link';
+import { useCurrencyStore } from '@/storages/useCurrencyStorage'
+import { useLanguageStore } from '@/storages/useLanguageStorage';
 
 const currencies = ["EUR", "PLN", "UAH"]
 const languages = ["EN", "PL", "UA"]
@@ -15,10 +17,14 @@ const clothCategories = {
 export default function HeaderComponent() {
 
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
-    const [currency, setCurrency] = useState('PLN')
-    const [language, setLanguage] = useState('PL')
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
     const cart_amount = 3
+
+    const currency = useCurrencyStore((state) => state.currency)
+    const setCurrency = useCurrencyStore((state) => state.setCurrency)
+
+    const language = useLanguageStore((state) => state.language)
+    const setLanguage = useLanguageStore((state) => state.setLanguage)
 
     const handleMouseEnter = (dropdownName: string) => {
         setActiveDropdown(dropdownName)
@@ -210,6 +216,46 @@ export default function HeaderComponent() {
                         <a href="#" className="hover:text-black transition-colors duration-200">About</a>
                         <a href="#" className="hover:text-black transition-colors duration-200">Contact</a>
                         </nav>
+                        <div className="mt-10 w-full max-w-xs text-sm text-gray-700">
+                            {/* Currency Selector */}
+                            <div className="mb-4">
+                                <label className="block mb-1 font-medium tracking-wide text-gray-600">Currency</label>
+                                <div className="relative">
+                                <select
+                                    value={currency}
+                                    onChange={(e) => setCurrency(e.target.value)}
+                                    className="w-full appearance-none rounded-lg border border-gray-200 bg-white px-4 py-2 pr-8 shadow-sm focus:outline-none focus:ring-1 focus:ring-black"
+                                >
+                                    {currencies.map((cur) => (
+                                    <option key={cur} value={cur}>
+                                        {cur}
+                                    </option>
+                                    ))}
+                                </select>
+                                <ChevronDownIcon className="w-4 h-4 absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none text-gray-400" />
+                                </div>
+                            </div>
+
+                            {/* Language Selector */}
+                            <div>
+                                <label className="block mb-1 font-medium tracking-wide text-gray-600">Language</label>
+                                <div className="relative">
+                                <select
+                                    value={language}
+                                    onChange={(e) => setLanguage(e.target.value)}
+                                    className="w-full appearance-none rounded-lg border border-gray-200 bg-white px-4 py-2 pr-8 shadow-sm focus:outline-none focus:ring-1 focus:ring-black"
+                                >
+                                    {languages.map((lang) => (
+                                    <option key={lang} value={lang}>
+                                        {lang}
+                                    </option>
+                                    ))}
+                                </select>
+                                <ChevronDownIcon className="w-4 h-4 absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none text-gray-400" />
+                                </div>
+                            </div>
+                            </div>
+
                     </div>
                 )}
 
