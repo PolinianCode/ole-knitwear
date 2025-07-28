@@ -26,7 +26,7 @@ export default function AboutUsComponent() {
                     <p className="text-gray-700 leading-loose ">
                         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis dignissimos commodi, inventore ad sed similique dolores vero animi, distinctio libero doloremque! Incidunt ut at illum blanditiis alias saepe obcaecati ex!
                     </p>
-                    <p className="pt-10 italic"><b>Olesia Bruskova - Founder of Ole Knitwear</b></p>
+                    <p className="pt-10 italic">Olesia Bruskova - Founder of Ole Knitwear</p>
                 </div>
             </div>
         </div>
