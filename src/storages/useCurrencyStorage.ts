@@ -15,6 +15,7 @@ export const useCurrencyStore = create(
         UAH: 1,
         EUR: 0.025,
         PLN: 0.11,
+        USD: 0.027,
       },
       setCurrency: (currency) => set({ currency }),
     }),

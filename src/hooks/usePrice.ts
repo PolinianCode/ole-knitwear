@@ -9,6 +9,7 @@ export function usePrice(priceUah: number): string {
     UAH: '₴',
     EUR: '€',
     PLN: 'zł',
+    USD: '$',
   }
 
   const symbol = symbols[currency] ?? ''

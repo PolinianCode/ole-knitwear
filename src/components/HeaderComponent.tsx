@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { useCurrencyStore } from '@/storages/useCurrencyStorage'
 import { useLanguageStore } from '@/storages/useLanguageStorage';
 
-const currencies = ["EUR", "PLN", "UAH"]
+const currencies = ["EUR", "PLN", "UAH", "USD"]
 const languages = ["EN", "PL", "UA"]
 
 const clothCategories = {
