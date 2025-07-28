@@ -12,6 +12,7 @@ export default function HomePage() {
             <SliderComponent />
             <SectionLineComponent  title="FEATURE" />
             <GalleryComponent />
+            <SectionLineComponent />
             <AboutUsComponent />
         </div>
     )
