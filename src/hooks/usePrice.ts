@@ -14,5 +14,5 @@ export function usePrice(priceUah: number): string {
 
   const symbol = symbols[currency] ?? ''
 
-  return `${symbol} ${converted.toFixed(currency === 'UAH' ? 0 : 2)}`
+  return `${symbol} ${converted.toFixed(0)}`
 }
