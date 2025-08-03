@@ -26,13 +26,13 @@ export default function CartSidebar() {
       />
       
       {/* Sidebar */}
-      <div className={`fixed right-0 top-0 h-full w-96 bg-white shadow-xl z-50 transform transition-transform duration-300 ease-in-out ${
+      <div className={`fixed right-0 top-0 h-full w-96 bg-white shadow-xl z-50 transform transition-transform duration-300 ease-in-out font-raleway text-base text-gray-800 ${
         isOpen ? 'translate-x-0' : 'translate-x-full'
       }`}>
         
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-gray-200">
-          <h2 className="text-xl font-semibold font-raleway">Shopping Cart</h2>
+          <h2 className="text-xl font-medium font-raleway">Shopping Cart</h2>
           <button 
             onClick={closeCart}
             className="p-2 hover:bg-gray-100 rounded-full transition-colors duration-200"
@@ -44,11 +44,11 @@ export default function CartSidebar() {
         {/* Cart Items */}
         <div className="flex-1 overflow-y-auto p-6">
           {items.length === 0 ? (
-            <div className="text-center py-12">
-              <p className="text-gray-500 mb-4">Your cart is empty</p>
+            <div className="text-center py-12 font-raleway">
+              <p className="text-gray-500 mb-4 text-base font-raleway">Your cart is empty</p>
               <button 
                 onClick={closeCart}
-                className="bg-black text-white px-6 py-2 rounded-lg hover:bg-gray-800 transition-colors duration-200"
+                className="bg-black text-white px-6 py-2 rounded-lg hover:bg-gray-800 transition-colors duration-200 font-raleway text-base font-medium"
               >
                 Continue Shopping
               </button>
@@ -56,7 +56,7 @@ export default function CartSidebar() {
           ) : (
             <div className="space-y-4">
               {items.map((item) => (
-                <div key={item.id} className="flex gap-4 p-4 border border-gray-200 rounded-lg">
+                <div key={item.id} className="flex gap-4 p-4 border border-gray-200 rounded-lg font-raleway">
                   {/* Product Image */}
                   <div className="w-16 h-16 bg-gray-200 rounded-lg flex-shrink-0">
                     <img 
@@ -71,24 +71,24 @@ export default function CartSidebar() {
                   
                   {/* Product Details */}
                   <div className="flex-1">
-                    <h3 className="font-medium text-sm">{item.name}</h3>
-                    {item.size && <p className="text-xs text-gray-500">Size: {item.size}</p>}
-                    {item.color && <p className="text-xs text-gray-500">Color: {item.color}</p>}
-                    <p className="font-semibold text-sm mt-1">${item.price.toFixed(2)}</p>
+                    <h3 className="font-medium text-base font-raleway">{item.name}</h3>
+                    {item.size && <p className="text-xs text-gray-500 font-raleway">Size: {item.size}</p>}
+                    {item.color && <p className="text-xs text-gray-500 font-raleway">Color: {item.color}</p>}
+                    <p className="font-medium text-base font-raleway mt-1">${item.price.toFixed(2)}</p>
                     
                     {/* Quantity Controls */}
                     <div className="flex items-center justify-between mt-2">
                       <div className="flex items-center border border-gray-300 rounded">
                         <button 
                           onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                          className="p-1 hover:bg-gray-100 transition-colors duration-200"
+                          className="p-1 hover:bg-gray-100 transition-colors duration-200 font-raleway"
                         >
                           <MinusIcon className="w-3 h-3" />
                         </button>
-                        <span className="px-3 py-1 text-sm">{item.quantity}</span>
+                        <span className="px-3 py-1 text-base font-raleway">{item.quantity}</span>
                         <button 
                           onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                          className="p-1 hover:bg-gray-100 transition-colors duration-200"
+                          className="p-1 hover:bg-gray-100 transition-colors duration-200 font-raleway"
                         >
                           <PlusIcon className="w-3 h-3" />
                         </button>
@@ -96,7 +96,7 @@ export default function CartSidebar() {
                       
                       <button 
                         onClick={() => removeItem(item.id)}
-                        className="p-1 text-red-500 hover:bg-red-50 rounded transition-colors duration-200"
+                        className="p-1 text-red-500 hover:bg-red-50 rounded transition-colors duration-200 font-raleway"
                       >
                         <TrashIcon className="w-4 h-4" />
                       </button>
@@ -110,19 +110,19 @@ export default function CartSidebar() {
 
         {/* Footer with totals and checkout */}
         {items.length > 0 && (
-          <div className="border-t border-gray-200 p-6">
+          <div className="border-t border-gray-200 p-6 font-raleway">
             <div className="space-y-2 mb-4">
               <div className="flex justify-between text-sm">
-                <span>Subtotal:</span>
-                <span>${subtotal.toFixed(2)}</span>
+                <span className="font-raleway">Subtotal:</span>
+                <span className="font-raleway">${subtotal.toFixed(2)}</span>
               </div>
               <div className="flex justify-between text-sm">
-                <span>Shipping:</span>
-                <span>${shipping.toFixed(2)}</span>
+                <span className="font-raleway">Shipping:</span>
+                <span className="font-raleway">${shipping.toFixed(2)}</span>
               </div>
               <div className="flex justify-between font-semibold text-lg border-t border-gray-200 pt-2">
-                <span>Total:</span>
-                <span>${total.toFixed(2)}</span>
+                <span className="font-medium text-lg font-raleway">Total:</span>
+                <span className="font-medium text-lg font-raleway">${total.toFixed(2)}</span>
               </div>
             </div>
             
@@ -132,7 +132,7 @@ export default function CartSidebar() {
             
             <button 
               onClick={closeCart}
-              className="w-full mt-2 border border-gray-300 text-gray-700 py-3 rounded-lg hover:bg-gray-50 transition-colors duration-200 font-medium"
+              className="w-full mt-2 border border-gray-300 text-gray-700 py-3 rounded-lg hover:bg-gray-50 transition-colors duration-200 font-raleway text-base font-medium"
             >
               Continue Shopping
             </button>

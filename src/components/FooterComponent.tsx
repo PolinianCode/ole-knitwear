@@ -18,7 +18,7 @@ export default function Footer() {
 
                 {/* Contact */}
                 <div className="space-y-4">
-                    <h3 className="uppercase font-semibold">Contact</h3>
+                    <h3 className="uppercase font-raleway font-semibold">Contact</h3>
                     <p>
                         <a href="mailto:lekoval@gmail.com" className="hover:underline">lekoval@gmail.com</a><br />
                         <a href="tel:+380631099202" className="hover:underline">+380 63 109 9202</a>
@@ -31,7 +31,7 @@ export default function Footer() {
 
                 {/* Desc */}
                 <div className="space-y-4">
-                    <h3 className="font-semibold text-lg">Ole Knitwear</h3>
+                    <h3 className="font-raleway font-semibold text-lg">Ole Knitwear</h3>
                     <p className="max-w-md mx-auto md:mx-0">
                         Where luxury meets craftsmanship through ethical handmade knitwear. We collaborate with senior artisans to create modern heirlooms.
                     </p>
@@ -40,7 +40,7 @@ export default function Footer() {
 
                 {/* Socials */}
                 <div className="space-y-4 text-center md:text-right">
-                    <h3 className="uppercase font-semibold">Follow Us</h3>
+                    <h3 className="uppercase font-raleway font-semibold">Follow Us</h3>
                     <div className="flex justify-center md:justify-end">
                         <a href="https://www.instagram.com/ole.knitwear/" target="_blank" rel="noopener noreferrer" className="hover:underline flex items-center gap-2">
                         <FontAwesomeIcon icon={faInstagram} className="w-4 h-4" />

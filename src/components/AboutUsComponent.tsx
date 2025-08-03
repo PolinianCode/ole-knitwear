@@ -16,17 +16,17 @@ export default function AboutUsComponent() {
                 </div>
 
                 <div className="w-full md:w-1/2">
-                    <h2 className="text-2xl font-semibold mb-4 tracking-wide">OUR STORY</h2>
-                    <p className="text-gray-700 mb-4 leading-loose ">
+                    <h2 className="text-3xl font-bold mb-4 tracking-wide text-black font-raleway">OUR STORY</h2>
+                    <p className="text-gray-700 mb-4 leading-loose text-base font-raleway">
                         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, praesentium tempore. Voluptatibus, vero maiores sed, facilis omnis praesentium, quasi est minus earum aliquam eligendi provident repellendus quae porro quibusdam sit?
                     </p>
-                    <p className="text-gray-700 mb-4 leading-loose ">
+                    <p className="text-gray-700 mb-4 leading-loose text-base font-raleway">
                         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae modi fugit nulla iusto provident, voluptatibus molestiae ad quae ducimus illo dignissimos explicabo repellendus assumenda minima maxime consequatur obcaecati ab id.
                     </p>
-                    <p className="text-gray-700 leading-loose ">
+                    <p className="text-gray-700 leading-loose text-base font-raleway">
                         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis dignissimos commodi, inventore ad sed similique dolores vero animi, distinctio libero doloremque! Incidunt ut at illum blanditiis alias saepe obcaecati ex!
                     </p>
-                    <p className="pt-10 italic">Olesia Bruskova - Founder of Ole Knitwear</p>
+                    <p className="pt-10 italic text-gray-500 font-raleway">Olesia Bruskova - Founder of Ole Knitwear</p>
                 </div>
             </div>
         </div>

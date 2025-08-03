@@ -27,14 +27,12 @@ export default function ProductCard({ product, index }: { product: Product; inde
           />
         </div>
         <div className="pt-5 pb-5">
-          <h3 className="text-sm uppercase text-[#666] tracking-wide font-normal font-montserrat mb-1.5">
-            {product.name}
-          </h3>
-          <div className="text-base font-raleway text-[#222]">
+          <h3 className="text-base font-raleway font-medium text-gray-800 mb-1.5">{product.name}</h3>
+          <div className="text-base font-raleway text-black">
             {product.oldPrice && (
               <span className="line-through text-gray-400 mr-2">{oldPrice}</span>
             )}
-            <span>{price}</span>
+            <span className="font-bold">{price}</span>
           </div>
         </div>
       </Link>
