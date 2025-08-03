@@ -2,6 +2,7 @@ import "@/styles/globals.css"
 import HeaderComponent from "@/components/HeaderComponent"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import Footer from "@/components/FooterComponent"
+import CartSidebar from "@/components/CartSidebar"
 
 export const metadata = {
     title:"Ole Knitwear",
@@ -23,12 +24,15 @@ export default function RootLayout({
                 <link rel="shortcut icon" href="/favicon.ico" />
                 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"></link>
             </head>
-            <body>
-                <HeaderComponent />
-                {children}
-                <Footer />
-                <SpeedInsights />
-            </body>
+              <body className="flex flex-col min-h-screen">
+        <HeaderComponent />
+        <main className="flex-1">
+          {children}
+        </main>
+        <Footer />
+        <CartSidebar />
+        <SpeedInsights />
+      </body>
         </html>
     )
 }

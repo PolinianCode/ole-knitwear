@@ -49,6 +49,8 @@ export default function Footer() {
                     </div>
                 </div>
             </div>
+
+            {/** Payment methods */}
             <div className=" pt-6 pb-10">
                     <div className="max-w-7xl mx-auto flex justify-center flex-wrap gap-6">
                         {paymentIcons.map((icon, index) => (
@@ -62,7 +64,7 @@ export default function Footer() {
                             />
                         ))}
                     </div>
-                </div>
+            </div>
         </footer>
     );
 }

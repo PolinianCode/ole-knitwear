@@ -5,6 +5,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { useCurrencyStore } from '@/storages/useCurrencyStorage'
 import { useLanguageStore } from '@/storages/useLanguageStorage';
+import { useCartStore } from '@/storages/useCartStorage';
 
 const currencies = ["EUR", "PLN", "UAH", "USD"]
 const languages = ["EN", "PL", "UA"]
@@ -18,7 +19,9 @@ export default function HeaderComponent() {
 
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-    const cart_amount = 3
+    
+    const openCart = useCartStore((state) => state.openCart)
+    const totalItems = useCartStore((state) => state.getTotalItems());
 
     const currency = useCurrencyStore((state) => state.currency)
     const setCurrency = useCurrencyStore((state) => state.setCurrency)
@@ -183,11 +186,14 @@ export default function HeaderComponent() {
                        </div>
 
                         {/* Cart button */}
-                        <button className='relative p-2 text-gray-700 hover:text-black transition-colors duration-200 group'>
+                        <button 
+                            onClick={openCart}
+                            className='relative p-2 text-gray-700 hover:text-black transition-colors duration-200 group'
+                        >
                             <ShoppingBagIcon className='w-6 h-6 group-hover:scale-110 transition-transform duration-200'/>
-                            {cart_amount >0 && (
+                            {totalItems > 0 && (
                                 <span className='absolute -right-1 -top-1 bg-black w-5 h-5 rounded-full text-white text-xs font-bold flex items-center justify-center'>
-                                    {cart_amount}
+                                    {totalItems}
                                 </span>
                             )}
                         </button>
