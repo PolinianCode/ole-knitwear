@@ -1,11 +1,13 @@
 'use client'
 
 import {GlobeAltIcon, ShoppingBagIcon, ChevronDownIcon, Bars3Icon, XMarkIcon} from '@heroicons/react/24/outline'
+import CartBadgeClient from './CartBadgeClient';
 import { useState } from 'react';
 import Link from 'next/link';
 import { useCurrencyStore } from '@/storages/useCurrencyStorage'
 import { useLanguageStore } from '@/storages/useLanguageStorage';
 import { useCartStore } from '@/storages/useCartStorage';
+import { useHydration } from '@/hooks/useHydration';
 
 const currencies = ["EUR", "PLN", "UAH", "USD"]
 const languages = ["EN", "PL", "UA"]
@@ -16,12 +18,11 @@ const clothCategories = {
 };
 
 export default function HeaderComponent() {
-
+    const isHydrated = useHydration();
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
     
     const openCart = useCartStore((state) => state.openCart)
-    const totalItems = useCartStore((state) => state.getTotalItems());
 
     const currency = useCurrencyStore((state) => state.currency)
     const setCurrency = useCurrencyStore((state) => state.setCurrency)
@@ -103,7 +104,7 @@ export default function HeaderComponent() {
                                 onMouseLeave={handleMouseLeave}
                             >
                                 <button className='flex items-center space-x-1 text-gray-700 hover:text-black transition-colors duration-200 text-base font-raleway font-medium'>
-                                    <span className='text-base font-raleway font-medium'>{currency}</span>
+                                    <span className='text-base font-raleway font-medium'>{isHydrated ? currency : 'UAH'}</span>
                                     <ChevronDownIcon 
                                         className={`w-5 h-5 transition-transform duration-200 ${activeDropdown === "currency" ? 'rotate-180' : ''}`} 
                                     />
@@ -130,7 +131,7 @@ export default function HeaderComponent() {
                             >
                                 <button className='flex items-center space-x-1 text-gray-700 hover:text-black transition-colors duration-200 text-base font-raleway font-medium'>
                                     <GlobeAltIcon className='h-5 w-5'/>
-                                    <span className='text-base font-raleway font-medium'>{language}</span>
+                                    <span className='text-base font-raleway font-medium'>{isHydrated ? language : 'UA'}</span>
                                     <ChevronDownIcon 
                                         className={`w-5 h-5 transition-transform duration-200 ${activeDropdown === "language" ? 'rotate-180' : ''}`} 
                                     />
@@ -156,11 +157,7 @@ export default function HeaderComponent() {
                             className='relative p-2 text-gray-700 hover:text-black transition-colors duration-200 group'
                         >
                             <ShoppingBagIcon className='w-6 h-6 group-hover:scale-110 transition-transform duration-200'/>
-                            {totalItems > 0 && (
-                                <span className='absolute -right-1 -top-1 bg-black w-5 h-5 rounded-full text-white text-xs font-raleway font-bold flex items-center justify-center'>
-                                    {totalItems}
-                                </span>
-                            )}
+                            <CartBadgeClient />
                         </button>
                     </div>
                 </div>
@@ -193,7 +190,7 @@ export default function HeaderComponent() {
                                 <label className="block mb-1 font-medium tracking-wide text-gray-600">Currency</label>
                                 <div className="relative">
                                 <select
-                                    value={currency}
+                                    value={isHydrated ? currency : 'UAH'}
                                     onChange={(e) => setCurrency(e.target.value)}
                                     className="w-full appearance-none rounded-lg border border-gray-200 bg-white px-4 py-2 pr-8 shadow-sm focus:outline-none focus:ring-1 focus:ring-black"
                                 >
@@ -212,7 +209,7 @@ export default function HeaderComponent() {
                                 <label className="block mb-1 font-medium tracking-wide text-gray-600">Language</label>
                                 <div className="relative">
                                 <select
-                                    value={language}
+                                    value={isHydrated ? language : 'UA'}
                                     onChange={(e) => setLanguage(e.target.value)}
                                     className="w-full appearance-none rounded-lg border border-gray-200 bg-white px-4 py-2 pr-8 shadow-sm focus:outline-none focus:ring-1 focus:ring-black"
                                 >

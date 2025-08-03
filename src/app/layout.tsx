@@ -1,8 +1,9 @@
-import "@/styles/globals.css"
-import HeaderComponent from "@/components/HeaderComponent"
-import { SpeedInsights } from "@vercel/speed-insights/next"
-import Footer from "@/components/FooterComponent"
-import CartSidebar from "@/components/CartSidebar"
+import "@/styles/globals.css";
+import HeaderComponent from "@/components/HeaderComponent";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import Footer from "@/components/FooterComponent";
+import CartSidebar from "@/components/CartSidebar";
+
 
 export const metadata = {
     title:"Ole Knitwear",
@@ -25,14 +26,15 @@ export default function RootLayout({
                 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"></link>
             </head>
               <body className="flex flex-col min-h-screen">
-        <HeaderComponent />
-        <main className="flex-1">
-          {children}
-        </main>
-        <Footer />
-        <CartSidebar />
-        <SpeedInsights />
+                <HeaderComponent />
+                <main className="flex-1">
+                  {children}
+                </main>
+                <Footer />
+                <CartSidebar />
+                <SpeedInsights />
       </body>
         </html>
     )
 }
+        

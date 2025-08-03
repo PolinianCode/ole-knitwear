@@ -5,6 +5,7 @@ import AboutUsComponent from "@/components/AboutUsComponent";
 import SectionLineComponent from "@/components/SectionLineComponent";
 import GalleryComponent from "@/components/GalleryComponent";
 import { useCartStore } from "@/storages/useCartStorage";
+import CartSidebar from "@/components/CartSidebar";
 
 export default function HomePage() {
     const addItem = useCartStore((state) => state.addItem)
@@ -38,6 +39,7 @@ export default function HomePage() {
             <GalleryComponent />
             <SectionLineComponent />
             <AboutUsComponent />
+            <CartSidebar />
         </div>
     )
 }

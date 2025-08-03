@@ -2,6 +2,7 @@
 
 import { XMarkIcon, MinusIcon, PlusIcon, TrashIcon } from '@heroicons/react/24/outline'
 import { useCartStore } from '@/storages/useCartStorage'
+import { useEffect, useState } from 'react'
 
 export default function CartSidebar() {
   const isOpen = useCartStore((state) => state.isOpen)
@@ -42,7 +43,7 @@ export default function CartSidebar() {
         </div>
 
         {/* Cart Items */}
-        <div className="flex-1 overflow-y-auto p-6">
+        <div className="flex-1 overflow-y-auto p-6" style={{ maxHeight: 'calc(100vh - 200px)' }}>
           {items.length === 0 ? (
             <div className="text-center py-12 font-raleway">
               <p className="text-gray-500 mb-4 text-base font-raleway">Your cart is empty</p>
